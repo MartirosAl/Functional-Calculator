@@ -34,7 +34,16 @@ public:
 
    double Calculate(double arg_)
    {
+      x = arg_;
       return a * x + b;
+   }
+
+   void Set_Arguments()
+   {
+      cout << "Enter a: ";
+      cin >> a;
+      cout << "Enter b: ";
+      cin >> b;
    }
 };
 
