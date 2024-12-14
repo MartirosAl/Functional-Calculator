@@ -14,13 +14,14 @@ public:
    {
       cout << "Tabulation for function y = " << function_->Get_Name() << endl;
 
-      function_->Calculate();
-
       double begin, step, end;
 
       cout << "Enter begin: "; cin >> begin;
       cout << "Enter step: "; cin >> step;
       cout << "Enter end: "; cin >> end;
+      
+      function_->Set_Arguments();
+      cout << endl;
 
       while (begin <= end)
       {

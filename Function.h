@@ -17,6 +17,8 @@ public:
 
    virtual const string& Get_Name() const = 0;
 
+   virtual void Set_Arguments() = 0;
+
    virtual double Calculate() = 0;
 
    virtual double Calculate(double arg_) = 0;

@@ -5,11 +5,13 @@ class Polynomial : public Function
 {
 protected:
    double* coefficients;
+   int n_coefficients;
 public:
 
    Polynomial()
    {
       coefficients = 0;
+      n_coefficients = 0;
       name = "a(0)+...+a(n)*x^n";
    }
 
@@ -17,10 +19,10 @@ public:
    
    double Calculate()
    {
-      
+      cout << "Entex x: ";
+      cin >> x;
 
       cout << "Enter number coefficients: ";
-      int n_coefficients;
       cin >> n_coefficients;
       if (n_coefficients == 0)
          return 0;
@@ -28,7 +30,7 @@ public:
       coefficients = new double[n_coefficients + 1];
 
       cout << "Enter coefficients: ";
-      for (int i = n_coefficients - 1; i > 0; i--)
+      for (int i = n_coefficients - 1; i >= 0; i--)
       {
          cin >> coefficients[i];
          while (!cin.good())
@@ -52,7 +54,6 @@ public:
    double Calculate(double arg_)
    {
       x = arg_;
-      int n_coefficients = sizeof(*coefficients) / sizeof(double);
       double result = coefficients[0];
 
       for (int i = 1; i < n_coefficients; i++)
@@ -62,6 +63,27 @@ public:
       }
 
       return result;
+   }
+
+   void Set_Arguments()
+   {
+      cout << "Enter number coefficients: ";
+      cin >> n_coefficients;
+      if (n_coefficients == 0)
+         return;
+
+      coefficients = new double[n_coefficients + 1];
+
+      cout << "Enter coefficients: ";
+      for (int i = n_coefficients - 1; i >= 0; i--)
+      {
+         cin >> coefficients[i];
+         while (!cin.good())
+         {
+            cout << "Incorrect Input! Try Again" << endl;
+            cin >> coefficients[i];
+         }
+      }
    }
 };
 
